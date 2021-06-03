@@ -36,9 +36,13 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
-// get a restaurant
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  console.log('req.params.restaurant_id', req.params.restaurant_id)
+// get a restaurant by id
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurants/search', (req, res) => {

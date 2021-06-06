@@ -10,9 +10,6 @@ A simple web application for food finder by Node.js and Express
 - 使用者能透過搜尋列輸入餐廳的名稱或分類來查找特定的餐廳（剔除使用者輸入字串包含多餘的空白）
 - 使用者點擊`我的餐廳清單`能回到首頁顯示全部餐廳清單列表
 
-## 環境建置與需求 (prerequisites)
-
-
 ## 安裝與執行步驟 (Installation and Execution)
 1. 下載專案至您的本機電腦
 ```

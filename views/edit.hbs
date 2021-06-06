@@ -7,16 +7,17 @@
 <div class="container">
   <div class="row text-center">
     <div class="col">
-      <h2 class="crud-show-title">新增餐廳</h2>
+      <h2 class="crud-show-title">編輯餐廳</h2>
     </div>
   </div>
 
-  <form id="form" action="/restaurants" method="POST" class="needs-validation" novalidate>
+  <form id="form" action="/restaurants/{{ restaurant._id }}/edit" method="POST" class="needs-validation" novalidate>
     <div class="container text-secondary">
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <input type="text" class="form-control" name="name" id="name" placeholder="name" required>
+            <input type="text" class="form-control" name="name" id="name" placeholder="name"
+              value="{{ restaurant.name }}" required>
             <label for="name">餐廳名稱*</label>
             <div class="invalid-feedback">
             </div>
@@ -27,7 +28,8 @@
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <input type="text" class="form-control" name="name_en" id="name_en" placeholder="name_en">
+            <input type="text" class="form-control" name="name_en" id="name_en" placeholder="name_en"
+              value="{{ restaurant.name_en }}">
             <label for="name_en">餐廳別名</label>
           </div>
         </div>
@@ -36,8 +38,8 @@
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <select class="form-select" name="category" id="category" placeholder="category" required>
-              <option selected disabled value=""></option>
+            <select class="form-select" name="category" id="category" placeholder="category" data-tick-icon="" required>
+              <option selected disabled hidden>{{restaurant.category}}</option>
               <option value="美式">美式</option>
               <option value="義式">義式</option>
               <option value="法式">法式</option>
@@ -60,7 +62,7 @@
         <div class="col-6">
           <div class="form-floating">
             <input type="text" class="form-control" name="image" id="image" placeholder="Image URL"
-              value="https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png" required>
+              value="{{ restaurant.image }}" required>
             <label for="image">餐廳照片URL*</label>
             <div class="invalid-feedback">
             </div>
@@ -71,7 +73,8 @@
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <input type="text" class="form-control" name="phone" id="phone" placeholder="phone" required>
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="phone"
+              value="{{ restaurant.phone }}" required>
             <label for="phone">電話*</label>
           </div>
         </div>
@@ -80,7 +83,8 @@
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <input type="text" class="form-control" name="location" id="location" placeholder="location" required>
+            <input type="text" class="form-control" name="location" id="location" placeholder="location"
+              value="{{ restaurant.location }}" required>
             <label for="location">地址*</label>
           </div>
         </div>
@@ -89,7 +93,8 @@
       <div class="row justify-content-md-center mb-4">
         <div class="col-6">
           <div class="form-floating">
-            <input type="text" class="form-control" name="google_map" id="google_map" placeholder="google_map">
+            <input type="text" class="form-control" name="google_map" id="google_map" placeholder="google＿map"
+              value="{{ restaurant.google_map }}">
             <label for="google_map">Google Map</label>
           </div>
         </div>
@@ -99,7 +104,7 @@
         <div class="col-6">
           <div class="form-floating">
             <input type="number" class="form-control" name="rating" id="rating" placeholder="rating" min="1" max="5"
-              step="0.1" required>
+              step="0.1" value="{{ restaurant.rating }}" required>
             <label for="rating">評分*</label>
           </div>
         </div>
@@ -109,24 +114,28 @@
         <div class="col-6">
           <div class="form-floating">
             <textarea class="form-control" name="description" id="description" placeholder="description"
-              style="height: 100px"></textarea>
+              style="height: 100px">{{ restaurant.description }}</textarea>
             <label for="description">簡介</label>
           </div>
         </div>
       </div>
 
       <div class="row justify-content-md-center mb-4">
-        <div class="col-6">
-          <button id="btn-add" type="submit" class="btn btn-secondary btn-lg w-100 mb-3">Add</button>
+        <div class="col-3 d-flex justify-content-md-end">
+          <a href="/" class="btn btn-light border-secondary btn-lg">Back</a>
+        </div>
+        <div class="col-3 d-flex justify-content-md-start">
+          <button id="btn-save" type="submit" class="btn btn-secondary btn-lg">Save</button>
         </div>
       </div>
     </div>
-  </form>
+</div>
+</form>
 </div>
 
 <script>
   const form = document.querySelector('#form')
-  const submitButton = document.querySelector('#btn-add')
+  const submitButton = document.querySelector('#btn-save')
 
   form.addEventListener('submit', function onFormSubmitted(event) {
     if (!form.checkValidity()) {
@@ -138,4 +147,6 @@
   submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
     form.classList.add('was-validated')
   })
+
+
 </script>

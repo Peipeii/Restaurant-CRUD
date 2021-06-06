@@ -41,9 +41,15 @@
         </div>
         <div class="card-footer text-right">
           <div class="d-flex justify-content-end">
-            <a href="/restaurants/{{this._id}}" class="text-muted me-2"><i class="fas fa-edit" title="edit"></i></a>
-            <a href="/restaurants/{{this._id}}" class="text-muted me-4"><i class="fas fa-trash-alt"
-                title="delete"></i></a>
+            <form action="/restaurants/{{ this._id }}/delete" method="POST">
+              <a href='#' class="text-muted me-2" onclick='this.parentNode.submit(); return false;'><i class=" fas
+                fa-trash-alt" title="delete"></i></a>
+            </form>
+
+            <a href="/restaurants/{{this._id}}/edit" class="text-muted me-2"><i class="fas fa-edit"
+                title="edit"></i></a>
+            {{!-- <a href="/restaurants/{{this._id}}" class="text-muted me-4"><i class="fas fa-trash-alt"
+                title="delete"></i></a> --}}
             <a href="/restaurants/{{this._id}}" class="text-dark"><i class="fas fa-ellipsis-h"
                 title="more information"></i></a>
           </div>

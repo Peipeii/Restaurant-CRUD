@@ -2,6 +2,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 const Restaurant = require('./models/restaurant.js') //load restaurant model
 
 // define express server variables
@@ -36,6 +37,11 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+// 新增的功能
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
 // get a restaurant by id
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
@@ -44,6 +50,7 @@ app.get('/restaurants/:id', (req, res) => {
     .then((restaurant) => res.render('show', { restaurant }))
     .catch(error => console.log(error))
 })
+
 
 app.get('/restaurants/search', (req, res) => {
   const keyword = req.query.keyword

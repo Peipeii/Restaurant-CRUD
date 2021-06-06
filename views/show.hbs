@@ -2,10 +2,9 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <h3 class="mb-1 restaurant-show-title-en">{{restaurant.name_en}}</h3>
 
-<div class="container">
-  <div class="row">
+<div class="container w-50">
+  <div class="row justify-content-center">
     <div class="col-12 col-md-10 mx-auto">
-
       <p class="mb-1">
         <span class="text-secondary">
           <i class="fas fa-utensils pr-2"></i>
@@ -37,8 +36,13 @@
         {{restaurant.description}}
       </p>
 
-      <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
-        style="max-width: 600px;">
+      <img class="img-fluid rounded mx-auto d-block" src="{{restaurant.image}}" alt="{{restaurant.name}}"
+        style="max-width: 650px;">
+
+      <div class="d-flex justify-content-center mt-4 mb-4">
+        <a href=" /restaurants/{{this._id}}" class="text-muted me-4"><i class="fas fa-edit" title="edit"></i>編輯</a>
+        <a href="/restaurants/{{this._id}}" class="text-muted"><i class="fas fa-trash-alt" title="delete"></i>刪除</a>
+      </div>
     </div>
   </div>
 </div>

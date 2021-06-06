@@ -71,7 +71,7 @@ header {
 
 .restaurant-show-title {
   position: relative;
-  top: -100px;
+  top: -120px;
   color: white;
   text-align: center;
   font-size: 3rem;
@@ -80,12 +80,35 @@ header {
 
 .restaurant-show-title-en {
   position: relative;
-  top: -100px;
+  top: -110px;
   color: white;
   text-align: center;
   font-size: 1.5rem;
   font-style: italic;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.crud-show-title {
+  position: relative;
+  top: -30px;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  /* font-weight: bold; */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+a > .fa-trash-alt:hover, a > .fa-edit:hover{
+  color: black
+}
+
+a > .fa-ellipsis-h:hover{
+  transform: scale(1.5)
+}
+
+.card-body > .badge:hover{
+  transform: scale(1.2);
+  color: lightgoldenrodyellow;
 }
 
 @media screen and (max-width: 992px) {

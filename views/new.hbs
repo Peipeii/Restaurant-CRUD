@@ -1,0 +1,139 @@
+<h1 class="mb-1 restaurant-show-title ">
+  <i class="fas fa-registered"></i> E S T A
+  <i class="fab fa-ello"></i> R A N T
+</h1>
+{{!-- <h3 class="crud-show-title"> 新增餐廳 </h3> --}}
+
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <h2 class="crud-show-title">新增餐廳</h2>
+    </div>
+  </div>
+
+  <form id="form" action="/restaurants" method="POST" class="needs-validation" novalidate>
+    <div class="container text-secondary">
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="name" placeholder="Name" aria-label="Name" required>
+            <label for="name">Name*</label>
+            <div class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="name-en" placeholder="Alias Name" aria-label="Alias Name">
+            <label for="name-en">Alias Name</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <select class="form-select" id="category" aria-label="Category" required>
+              <option hidden selected></option>
+              <option value="American">American</option>
+              <option value="Bristo">Bristo</option>
+              <option value="Bar">Bar</option>
+              <option value="Café">Café</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Thai">Thai</option>
+            </select>
+            <label for="category">Category</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="image" placeholder="Image" aria-label="Image URL" required>
+            <label for="image">Image URL</label>
+            <div class="invalid-feedback">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="phone" placeholder="Phone" aria-label="Phone" required>
+            <label for="phone">Phone</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="location" placeholder="Location" aria-label="Location" required>
+            <label for="location">Location</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="map" placeholder="Google Map" aria-label="Google Map">
+            <label for="map">Google Map</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="rating" placeholder="Rating" aria-label="Rating" required>
+            <label for="rating">Rating</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Description" id="description" aria-label="Description"
+              style="height: 100px"></textarea>
+            <label for="description">Description</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center mb-4">
+        <div class="col-6">
+          <button id="btn-add" type="submit" class="btn btn-secondary btn-lg w-100 mb-3">Add</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.querySelector('#form')
+  const submitButton = document.querySelector('#btn-add')
+
+  form.addEventListener('submit', function onFormSubmitted(event) {
+    if (!form.checkValidity()) {
+      event.stopPropagation()
+      event.preventDefault()
+    }
+  })
+
+  submitButton.addEventListener('click', function onSubmitButtonClicked(event) {
+    form.classList.add('was-validated')
+  })
+</script>
